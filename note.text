@@ -1,0 +1,141 @@
+Core 
+    init - consts - base - components
+    Bu katman bussines katmanlarının yapılacağı işlerin yönetildiği yer
+    Bu katmanı taşıyabilmek önemli olandır yani başka bir projeye olduğu gibi taşıyabilmelisin
+
+Test Core
+    mock manager mock service
+
+    Mock
+
+
+streamBuilder?
+    bir yeri dinliyor sadece dinlediği yerden gelene göre tetikleniyor
+
+
+
+state class ?
+
+
+reflection?
+
+
+
+lifeCycle
+with ?
+mixin abstract interface final implements extends 
+
+store ? 
+context ?
+oNGenerateRoute ? 
+SingleChildWidget ?
+copywith? + Texttheme and flutterforum temize çek
+reflection?
+devTools
+inheritance
+interface??
+pods?
+podfile?
+ WidgetsFlutterBinding.ensureInitialized(); ??
+ migration ?
+ equatable ? 
+ searchDelegate ?
+ goRouter and routing navigator 3.0
+image_picker ? 
+super ?
+ extends, implements
+valueSetter
+garbage collector
+object pooling
+sealed?????
+object vs dynamic 
+
+factory
+widget cachleme ?
+all anotation
+
+Navigator
+
+mobx-mobx_codegen-flutter_mobx-build-runner
+
+
+
+
+
+
+ 
+
+ 
+fiximport
+Systemoverlay - appbar
+didUpdateWidget 
+inspect(this)
+Statelesslar immutabledır değer alır değer verir bu yüzden finalsız kullanılmaz
+Part of 
+
+
+snippet: kendi custom snippetların
+extension : o sınıfa özellik kazandırıyor, on dediğin sınıfı genişletiyor o sınıfa custom kendi özelliğini ekleyip nesnesi olmadan kullanabiliyorsun
+
+Singleton yaklaşımı belirli bir sınıfın yalnızca bir örneğinin olmasını ve bu örneğe global olarak erişilmesini sağlar 
+
+Abstract classlar genelde kalıtım yolu tercih edildiğinde 
+
+Private cont: sınıfın herhangi bir örneğine ihtiyaç yoksa bir newleme söz konusu değilse kullanılır
+
+
+Immutable??: değişmez classlar için const için kullanılır yani bir product editlenebilir değişebilir fakat bir kategori kategori değişmez vb gibibibbibi ????
+Immutable nesnelerle çalışırken, Dart'ın garbage collector (çöp toplayıcı) sistemi kullanılmış olan eski nesneleri otomatik olarak temizler, böylece bellek yönetimi optimize edilir.
+Eğer ki setter metotlar yok ise ve propertyler final ile tanımlanmışsa immutabledır
+Immutable nesneler değiştirilemediği için her değişiklik yeni bir nesne oluşturur ve kullanılmayan nesneler garbage collector tarafından temizlenir.
+Eğer ki referans türünde bir nesne ise final olsa bile değiştirilebilir
+İmmutable classda tüm propertyler final olmalı refereans türündeki propertylerde immutable olmalı
+
+
+final: Referansın değiştirilemeyeceğini garanti eder
+
+
+WidgetsBinding.instance.addPostFrameCallback =>build metodu tamamlandıktan sonra Widget ağacı oluşur biter sonra işleme alınır 
+future.microtask => Diğer future işlemlerinden önce işlenir
+
+
+Stless vs func =final değişkenler ve const widgetlar için stless
+
+Context.read sadece bir okuma yapar 
+Context.watch dinler vb. Gibi consumer ile aynı işi yapar farkları yoktur context yoksa consumer kullanabilirsin
+
+
+panache**
+
+
+ 
+
+
+
+Performans Optimizasyonu: Sınıflar, daha ayrıntılı yeniden oluşturma ve const yapıcıları sayesinde performans optimizasyonu sağlar.
+Güncellemeler ve Bellek Yönetimi: Sınıflar, geçişler sırasında kaynakların doğru şekilde serbest bırakılmasını sağlar.
+
+-----------------
+Feature - işler
+Product - projenin ihtiyaçları
+Core - projeden bağımsız logicler paket implements vs func
+Common - padding vs package vs
+Widgets - atomic widgets
+
+
+*.ipa?
+
+
+
+code generation!!!
+ThirdParty
+Theme
+Scripts
+Enviroment
+EasyLocalization
+Navigation with AutoRoute
+Customize Widgetlar extends Widget but:
+    components extends Stateless
+
+
+Paddings
