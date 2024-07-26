@@ -4,6 +4,8 @@ final class CustomPaddings {
   CustomPaddings._();
   static Padding customPadding(double value, {Widget? child}) =>
       Padding(padding: EdgeInsets.all(value), child: child);
+
+  static const Padding padding8 = Padding(padding: ConstEdgeInsets.padding8());
 }
 
 @immutable

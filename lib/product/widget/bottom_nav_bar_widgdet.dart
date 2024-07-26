@@ -24,7 +24,7 @@ class BottomNavBarWidgdet extends StatelessWidget {
             case 1:
               context.pushReplacementNamed(AppRoutes.home);
             case 2:
-              context.pushReplacementNamed(AppRoutes.discover);
+              context.pushReplacementNamed(AppRoutes.myVideos);
 
               break;
             default:

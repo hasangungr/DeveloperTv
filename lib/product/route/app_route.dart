@@ -1,6 +1,7 @@
 import 'package:developer_tv/core/string_extension.dart';
 import 'package:developer_tv/view/auth/auth_view.dart';
 import 'package:developer_tv/view/discover/discover_view.dart';
+import 'package:developer_tv/view/my_videos/my_videos_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -29,6 +30,11 @@ final router = GoRouter(
       path: AppRoutes.discover.viewName,
       builder: (context, state) => const DiscoverView(),
     ),
+    GoRoute(
+      name: AppRoutes.myVideos,
+      path: AppRoutes.myVideos.viewName,
+      builder: (context, state) => const MyVideosView(),
+    ),
   ],
 );
 
@@ -38,4 +44,5 @@ sealed class AppRoutes {
   static const String home = 'home';
   static const String auth = 'auth';
   static const String discover = 'discover';
+  static const String myVideos = 'myVideos';
 }
