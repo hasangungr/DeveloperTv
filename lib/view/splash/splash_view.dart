@@ -21,8 +21,15 @@ class _SplashViewState extends State<SplashView> {
     _navigateToNextScreen(); // Asenkron yönlendirmeyi başlat
   }
 
+  @override
+  void dispose() {
+    print("dispose");
+    tokenValue.dispose();
+    super.dispose();
+  }
+
   Future<void> _navigateToNextScreen() async {
-    await Future.delayed(const Duration(seconds: 4));
+    await Future.delayed(const Duration(seconds: 2));
     tokenValue.value =
         await SecureStorageService.instance?.storageRead(StorageKeys.token) !=
                 null
@@ -31,9 +38,9 @@ class _SplashViewState extends State<SplashView> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!tokenValue.value == true) {
-        context.pushNamed(AppRoutes.home);
+        context.pushReplacementNamed(AppRoutes.home);
       } else {
-        context.pushNamed(AppRoutes.auth);
+        context.pushReplacementNamed(AppRoutes.auth);
       }
     });
   }
