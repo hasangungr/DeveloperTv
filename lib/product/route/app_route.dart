@@ -1,6 +1,9 @@
+import 'package:developer_tv/core/string_extension.dart';
+import 'package:developer_tv/view/auth/auth_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../view/home/home_view.dart';
 import '../../view/splash/splash_view.dart';
 
 final router = GoRouter(
@@ -10,10 +13,22 @@ final router = GoRouter(
       path: AppRoutes.splash,
       builder: (context, state) => const SplashView(),
     ),
+    GoRoute(
+      name: AppRoutes.auth,
+      path: AppRoutes.auth.viewName,
+      builder: (context, state) => const AuthView(),
+    ),
+    GoRoute(
+      name: AppRoutes.home,
+      path: AppRoutes.home.viewName,
+      builder: (context, state) => const HomeView(),
+    ),
   ],
 );
 
 @immutable
 sealed class AppRoutes {
   static const String splash = '/';
+  static const String home = 'home';
+  static const String auth = 'auth';
 }

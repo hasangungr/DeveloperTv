@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class AuthView extends StatelessWidget {
+  const AuthView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +9,7 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(),
       body: Center(
         child: Column(
-          children: [Text("Home")],
+          children: [Text("Auth")],
         ),
       ),
     );

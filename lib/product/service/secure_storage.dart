@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 final class SecureStorageService {
@@ -9,8 +10,10 @@ final class SecureStorageService {
 
   SecureStorageService._init() {
     _storage = const FlutterSecureStorage();
+    if (kDebugMode) {
+      print("Storage init");
+    }
   }
-
   Future<void> storageWrite(String key, String value) async =>
       await _storage.write(key: key, value: value);
 
