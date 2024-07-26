@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import '../../../core/widget/paddings.dart';
+import '../../core/widget/paddings.dart';
 
 class GridviewCustomWidget extends StatelessWidget {
   const GridviewCustomWidget({super.key});

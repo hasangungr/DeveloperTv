@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 final class CustomPaddings {
-  const CustomPaddings._();
-
+  CustomPaddings._();
   static Padding customPadding(double value, {Widget? child}) =>
       Padding(padding: EdgeInsets.all(value), child: child);
 }
@@ -13,7 +12,6 @@ final class ConstEdgeInsets extends EdgeInsets {
   const ConstEdgeInsets.padding8() : super.all(8);
   const ConstEdgeInsets.padding4() : super.all(4);
   const ConstEdgeInsets.padding12() : super.all(12);
- 
 }
 
 @immutable
@@ -29,5 +27,3 @@ final class CustomExpanded extends Expanded {
   const CustomExpanded({super.key, super.flex, Widget? child})
       : super(child: child ?? const SizedBox());
 }
-
-
