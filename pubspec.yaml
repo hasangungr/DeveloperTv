@@ -30,6 +30,12 @@ dependencies:
   go_router: ^14.2.0
 
 
+  flutter_bloc: ^8.1.6
+
+  service:
+    path: module/service
+
+
 
   
 

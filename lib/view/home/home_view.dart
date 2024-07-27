@@ -2,8 +2,7 @@ import 'package:developer_tv/product/widget/bottom_nav_bar_widgdet.dart';
 
 import '../../core/widget/paddings.dart';
 import '../../core/widget/scaffold_with_padding.dart';
-import '../../product/widget/gridview_custom_widget.dart';
-import '../../product/widget/list_video_wid.dart';
+ import '../../product/widget/list_video_wid.dart';
 import 'widget/story_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +19,7 @@ class HomeView extends StatelessWidget {
           StoryWidget(),
           CustomSizedBox.paddingHeight(heightValue: 10),
           // Expanded(flex: 3, child: SliderWidget()),
-          GridviewCustomWidget(isHorizontal: true),
+          // GridviewCustomWidget(isHorizontal: true),
           ListVideo(isScrollabel: false)
         ]),
       ),

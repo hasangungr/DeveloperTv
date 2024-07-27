@@ -1,7 +1,2 @@
-library service;
-
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'api/api_service.dart';
+export 'model/search_result_model.dart';

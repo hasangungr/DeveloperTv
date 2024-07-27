@@ -4,7 +4,11 @@ import '../../../core/decoration/decoration.dart';
 import '../../../core/form_widget/text_form_field.dart';
 
 class SearchWidget extends StatelessWidget {
-  const SearchWidget({super.key});
+  const SearchWidget({super.key, required this.controller, this.onSearch});
+
+  final TextEditingController controller;
+
+  final Function()? onSearch;
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +17,10 @@ class SearchWidget extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: TextFormFieldWidget(
-              isNullValid: true,
-              controller: TextEditingController(),
-            ),
+            child:
+                TextFormFieldWidget(isNullValid: true, controller: controller),
           ),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search))
+          IconButton(onPressed: onSearch, icon: const Icon(Icons.search))
         ],
       ),
     );

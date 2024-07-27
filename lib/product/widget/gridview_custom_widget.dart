@@ -2,6 +2,7 @@ import 'package:developer_tv/core/context_extension.dart';
 import 'package:developer_tv/core/decoration/decoration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:service/service.dart';
 
 import '../../core/widget/paddings.dart';
 
@@ -9,8 +10,10 @@ class GridviewCustomWidget extends StatelessWidget {
   const GridviewCustomWidget({
     super.key,
     this.isHorizontal = false,
+    required this.items,
   });
   final bool isHorizontal;
+  final List<Items> items;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +21,7 @@ class GridviewCustomWidget extends StatelessWidget {
         width: context.dynamicWidth(1),
         height: context.dynamicHeight(.35),
         child: GridView.custom(
+          shrinkWrap: true,
           scrollDirection:
               isHorizontal == false ? Axis.vertical : Axis.horizontal,
           gridDelegate: SliverQuiltedGridDelegate(
@@ -33,12 +37,25 @@ class GridviewCustomWidget extends StatelessWidget {
             ],
           ),
           childrenDelegate: SliverChildBuilderDelegate(
-            childCount: 6,
+            childCount: items.length,
             (context, index) => Container(
-              margin: const ConstEdgeInsets.padding4(),
-              decoration: CustomDecoration.containerDecoration,
-              child: Text(index.toString()),
-            ),
+                alignment: Alignment.bottomLeft,
+                margin: const ConstEdgeInsets.padding4(),
+                decoration: CustomDecoration.containerDecoration.copyWith(
+                    image: DecorationImage(
+                        image: NetworkImage(
+                          items[index]
+                              .snippet!
+                              .thumbnails!//todo null safety
+                              .defaultProperty!
+                              .url!,
+                        ),
+                        fit: BoxFit.cover)),
+                child: Text(
+                  items[index].snippet?.title ?? '',
+                  style: context.appTextTheme.bodyLarge?.copyWith(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                )),
           ),
         ));
   }
