@@ -1,9 +1,8 @@
-import 'package:developer_tv/core/widget/paddings.dart';
-import 'package:developer_tv/product/widget/bottom_nav_bar_widgdet.dart';
-import 'package:developer_tv/product/widget/list_video_wid.dart';
-import 'package:developer_tv/view/discover/discover_cubit.dart';
-import 'package:developer_tv/view/discover/widget/search_widget.dart';
-import 'package:developer_tv/product/widget/gridview_custom_widget.dart';
+import '../../core/widget/paddings.dart';
+import '../../product/widget/bottom_nav_bar_widgdet.dart';
+import '../../product/widget/list_video_wid.dart';
+import 'discover_cubit.dart';
+import 'widget/search_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,7 +16,7 @@ class DiscoverView extends StatelessWidget {
     final TextEditingController textEditingController = TextEditingController();
     return BlocProvider(
       create: (context) => DiscoverCubit(),
-      child: //todo generic
+      child:
           BlocBuilder<DiscoverCubit, DiscoverState>(builder: (context, state) {
         final discoverCubit = BlocProvider.of<DiscoverCubit>(context);
         return ScaffoldwithPadding(
@@ -30,12 +29,17 @@ class DiscoverView extends StatelessWidget {
                   discoverCubit.fetchVideos(textEditingController.text);
                 },
               ),
+              const CustomSizedBox.paddingHeight(heightValue: 12),
               if (state is DiscoverInitial)
                 const SizedBox()
               else if (state is DiscoverLoading)
-                const SizedBox()
+                const LinearProgressIndicator()
               else if (state is DiscoverCompleted)
-                Expanded(child: ListVideo(items: state.items ?? []))
+                Expanded(
+                    child: ListVideo(
+                  items: state.items ?? [],
+                  playerCubit: discoverCubit,
+                ))
               else
                 const SizedBox()
             ]));

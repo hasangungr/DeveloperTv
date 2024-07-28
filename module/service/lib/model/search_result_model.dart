@@ -1,4 +1,5 @@
-class SearchResultModel { //todo törpü
+class SearchResultModel {
+  //todo törpü
   String? kind;
   String? etag;
   String? nextPageToken;
@@ -46,19 +47,18 @@ class PageInfo {
       resultsPerPage: json['resultsPerPage'] as int?,
     );
   }
- 
 }
 
 class Items {
   String? kind;
   String? etag;
-  Id? id;
+  Id id;
   Snippet? snippet;
 
   Items({
     this.kind,
     this.etag,
-    this.id,
+    required this.id,
     this.snippet,
   });
 
@@ -66,15 +66,12 @@ class Items {
     return Items(
       kind: json['kind'] as String?,
       etag: json['etag'] as String?,
-      id: json['id'] == null
-          ? null
-          : Id.fromJson(json['id'] as Map<String, dynamic>),
+      id: json['id'] = Id.fromJson(json['id'] as Map<String, dynamic>),
       snippet: json['snippet'] == null
           ? null
           : Snippet.fromJson(json['snippet'] as Map<String, dynamic>),
     );
   }
- 
 }
 
 class Id {
@@ -92,8 +89,6 @@ class Id {
       videoId: json['videoId'] as String?,
     );
   }
-
- 
 }
 
 class Snippet {
@@ -131,8 +126,6 @@ class Snippet {
       publishTime: json['publishTime'] as String?,
     );
   }
-
-  
 }
 
 class Thumbnails {
@@ -159,8 +152,6 @@ class Thumbnails {
           : High.fromJson(json['high'] as Map<String, dynamic>),
     );
   }
-
-   
 }
 
 class Default {
@@ -181,8 +172,6 @@ class Default {
       height: json['height'] as int?,
     );
   }
-
-  
 }
 
 class Medium {
@@ -203,7 +192,6 @@ class Medium {
       height: json['height'] as int?,
     );
   }
- 
 }
 
 class High {
@@ -224,5 +212,4 @@ class High {
       height: json['height'] as int?,
     );
   }
- 
 }
