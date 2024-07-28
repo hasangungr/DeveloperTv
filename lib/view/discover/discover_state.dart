@@ -1,7 +1,7 @@
 part of 'discover_cubit.dart';
 
 @immutable
-sealed class DiscoverState {}
+abstract class DiscoverState {}
 //todo understanding
 
 final class DiscoverInitial extends DiscoverState {

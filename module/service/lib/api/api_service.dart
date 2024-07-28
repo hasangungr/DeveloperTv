@@ -17,7 +17,8 @@ final class ApiService {
   }
 
   Future<List<Items>?> fetchSearch(String searchText) async {
-    final Response response = await _dio.get("");
+    final Response response = await _dio.get(
+        "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&key=AIzaSyDS2RDOkWs59Azfyr86Ky4IOlHD3ae0EQM&q=$searchText");
     SearchResultModel parsed = SearchResultModel.fromJson(response.data);
     return parsed.items;
   }

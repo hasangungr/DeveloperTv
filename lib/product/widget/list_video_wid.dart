@@ -2,14 +2,17 @@
 import 'package:flutter/material.dart';
 
 import 'package:developer_tv/core/context_extension.dart';
+import 'package:service/service.dart';
 
 import '../../core/decoration/decoration.dart';
 import '../../core/widget/paddings.dart';
 
 class ListVideo extends StatelessWidget {
-  const ListVideo({super.key, this.isScrollabel = true});
+  const ListVideo({super.key, this.isScrollabel = true, required this.items});
 
   final bool isScrollabel;
+
+  final List<Items> items;
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +23,13 @@ class ListVideo extends StatelessWidget {
         physics:
             isScrollabel == true ? null : const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
-        itemCount: 4,
+        itemCount: items.length,
         separatorBuilder: (context, index) =>
             const CustomSizedBox.paddingHeight(heightValue: 24),
         itemBuilder: (context, index) {
-          return const ListedVideo();
+          return ListedVideo(
+            snippet: items[index].snippet,
+          );
         },
       ),
     );
@@ -32,7 +37,9 @@ class ListVideo extends StatelessWidget {
 }
 
 class ListedVideo extends StatelessWidget {
-  const ListedVideo({super.key});
+  const ListedVideo({super.key, required this.snippet});
+
+  final Snippet? snippet;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +48,17 @@ class ListedVideo extends StatelessWidget {
       decoration: CustomDecoration.containerDecoration,
       child: Row(
         children: [
-          Container(width: context.dynamicWidth(.3)),
+          Container(
+              width: context.dynamicWidth(.3),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: NetworkImage(
+                        snippet!
+                            .thumbnails! //todo null safety
+                            .defaultProperty!
+                            .url!,
+                      ),
+                      fit: BoxFit.cover))),
           Expanded(
             child: Padding(
               padding: const ConstEdgeInsets.padding8(),
@@ -49,7 +66,7 @@ class ListedVideo extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text("Beyni Yok Fikri Varrrrrrrrrqwewq",
+                  Text(snippet?.title ?? '',
                       style: CustomDecoration.bodyLargeElipsis(context)),
                   Text("Cem Yilmaz - Stand Up", //todo
                       style: context.appTextTheme.labelLarge

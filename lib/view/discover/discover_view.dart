@@ -1,5 +1,6 @@
 import 'package:developer_tv/core/widget/paddings.dart';
 import 'package:developer_tv/product/widget/bottom_nav_bar_widgdet.dart';
+import 'package:developer_tv/product/widget/list_video_wid.dart';
 import 'package:developer_tv/view/discover/discover_cubit.dart';
 import 'package:developer_tv/view/discover/widget/search_widget.dart';
 import 'package:developer_tv/product/widget/gridview_custom_widget.dart';
@@ -16,7 +17,7 @@ class DiscoverView extends StatelessWidget {
     final TextEditingController textEditingController = TextEditingController();
     return BlocProvider(
       create: (context) => DiscoverCubit(),
-      child://todo generic
+      child: //todo generic
           BlocBuilder<DiscoverCubit, DiscoverState>(builder: (context, state) {
         final discoverCubit = BlocProvider.of<DiscoverCubit>(context);
         return ScaffoldwithPadding(
@@ -30,12 +31,11 @@ class DiscoverView extends StatelessWidget {
                 },
               ),
               if (state is DiscoverInitial)
-                Container(color: Colors.red, height: 50, width: 50)
+                const SizedBox()
               else if (state is DiscoverLoading)
-                Container(color: Colors.yellow, height: 50, width: 50)
+                const SizedBox()
               else if (state is DiscoverCompleted)
-                // Text("data")
-                Expanded(child: GridviewCustomWidget(items: state.items ?? []))
+                Expanded(child: ListVideo(items: state.items ?? []))
               else
                 const SizedBox()
             ]));

@@ -17,7 +17,7 @@ class MyVideosView extends StatelessWidget {
         children: [
           CustomSizedBox.paddingHeight(heightValue: 24),
           Expanded(child: ListCategory()),
-          Expanded(flex: 9, child: ListVideo())
+          // Expanded(flex: 9, child: ListVideo())
         ],
       ),
       bottomNavBar: BottomNavBarWidgdet(currentIndex: 2),
