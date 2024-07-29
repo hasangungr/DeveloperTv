@@ -23,8 +23,6 @@ class BottomNavBarWidgdet extends StatelessWidget {
               context.pushReplacementNamed(AppRoutes.discover);
             case 1:
               context.pushReplacementNamed(AppRoutes.home);
-            case 2:
-              context.pushReplacementNamed(AppRoutes.myVideos);
 
               break;
             default:
@@ -35,7 +33,6 @@ class BottomNavBarWidgdet extends StatelessWidget {
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.search), label: "Discover"),
         BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: "My Videos")
       ],
     );
   }

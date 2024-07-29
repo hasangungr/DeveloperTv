@@ -13,7 +13,8 @@ class DiscoverView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController textEditingController = TextEditingController(); //todo
+    final TextEditingController textEditingController =
+        TextEditingController(); //todo
     return BlocProvider(
       create: (context) => DiscoverCubit(context),
       child:
@@ -22,12 +23,10 @@ class DiscoverView extends StatelessWidget {
         return ScaffoldwithPadding(
             bottomNavBar: const BottomNavBarWidgdet(currentIndex: 0),
             body: Column(children: [
-              const CustomSizedBox.paddingHeight(heightValue: 24),
               SearchWidget(
                 controller: textEditingController,
-                onSearch: () {
-                  discoverCubit.fetchVideos(textEditingController.text);
-                },
+                onSearch: () =>
+                    discoverCubit.fetchVideos(textEditingController.text),
               ),
               const CustomSizedBox.paddingHeight(heightValue: 12),
               if (state is DiscoverInitial)

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
- 
+
+import '../env/app_enviroment.dart';
 import '../model/video_list_model.dart';
 import '../model/video_model.dart';
 
@@ -20,17 +21,17 @@ final class ApiService {
 
   Future<List<MediaItem>?> fetchSearch(String searchText) async {
     final Response response = await _dio.get(
-        "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&key=&q=$searchText");
+        "${AppEnviroment.endPoint}search?part=snippet&type=video&key=${AppEnviroment.apiKey}&q=$searchText");
     VideoListModel parsed = VideoListModel.fromJson(response.data);
-    print(parsed.items![0].id);
+
     return parsed.items;
   }
 
-  fetchPlaylist(String playlistId) async {
+  Future<List<MediaItem>?> fetchPlaylist(String playlistId) async {
     final Response response = await _dio.get(
-        "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=25&playlistId=$playlistId&key=");
+        "${AppEnviroment.endPoint}playlistItems?part=snippet%2CcontentDetails&maxResults=25&playlistId=$playlistId&key=${AppEnviroment.apiKey}");
     VideoListModel parsed = VideoListModel.fromJson(response.data);
-    print(parsed.items![0].id);
+
     return parsed.items;
   }
 }

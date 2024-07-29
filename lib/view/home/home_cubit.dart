@@ -20,14 +20,12 @@ class HomeCubit extends Cubit<HomeState> implements BasePlayer {
   Future<void> fetchPlayList() async {
     emit(HomeLoading(false));
     List<MediaItem> items =
-        await ApiService.instance?.fetchPlaylist("PLBCF2DAC6FFB574DE");
+        await ApiService.instance?.fetchPlaylist("PLBCF2DAC6FFB574DE") ?? [];
     emit(HomeLoading(true));
 
     items.removeWhere((e) => e.url == null);
 
     emit(HomeCompleted(items: items));
-
-    print(items);
   }
 
   @override

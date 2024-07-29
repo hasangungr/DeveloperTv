@@ -17,7 +17,10 @@ class ScaffoldwithPadding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar,
+      appBar: AppBar(
+        title: const Text("Example Tv"),
+        backgroundColor: Colors.grey,
+      ),
       body: Padding(padding: const ConstEdgeInsets.padding16(), child: body),
       bottomNavigationBar: bottomNavBar,
     );
