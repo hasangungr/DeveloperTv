@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../../core/widget/paddings.dart';
 import '../../core/widget/scaffold_with_padding.dart';
-import '../../product/widget/list_video_wid.dart';
 import 'widget/list_category_wid.dart';
 
 class MyVideosView extends StatelessWidget {

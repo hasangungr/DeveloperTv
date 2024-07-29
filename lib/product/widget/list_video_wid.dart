@@ -1,11 +1,11 @@
+import 'package:developer_tv/product/base/base_player.dart';
 import 'package:flutter/material.dart';
 
-import 'package:developer_tv/core/context_extension.dart';
+import '../../core/context_extension.dart';
 import 'package:service/service.dart';
 
 import '../../core/decoration/decoration.dart';
 import '../../core/widget/paddings.dart';
-import '../../view/discover/discover_cubit.dart';
 
 class ListVideo extends StatelessWidget {
   const ListVideo({
@@ -17,8 +17,8 @@ class ListVideo extends StatelessWidget {
 
   final bool isScrollabel;
 
-  final List<Items> items;
-  final PlayerState playerCubit;
+  final List<MediaItem> items;
+  final BasePlayer playerCubit;
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +34,10 @@ class ListVideo extends StatelessWidget {
             const CustomSizedBox.paddingHeight(heightValue: 24),
         itemBuilder: (context, index) {
           return ListedVideo(
-            snippet: items[index].snippet,
-            playerDialog: () =>
-                playerCubit.voidVideoPlayer(context, items[index].id.videoId!),
+            video: items[index],
+            playerDialog: () => playerCubit.onVideoPlayer(
+              items[index].id,
+            ),
           );
         },
       ),
@@ -47,11 +48,11 @@ class ListVideo extends StatelessWidget {
 class ListedVideo extends StatelessWidget {
   const ListedVideo({
     super.key,
-    required this.snippet,
+    required this.video,
     required this.playerDialog,
   }) : super();
 
-  final Snippet? snippet;
+  final MediaItem? video;
   final Function() playerDialog;
 
   @override
@@ -63,21 +64,20 @@ class ListedVideo extends StatelessWidget {
         decoration: CustomDecoration.containerDecoration,
         child: Row(
           children: [
-            Container(
-                width: context.dynamicWidth(.3),
-                decoration: CustomDecoration.containerDecoration.copyWith(
-                    image: DecorationImage(
-                        image: NetworkImage(
-                          snippet!
-                              .thumbnails! //todo null safety
-                              .defaultProperty!
-                              .url!,
-                        ),
-                        fit: BoxFit.cover))),
+            video?.url != null
+                ? Container(
+                    width: context.dynamicWidth(.3),
+                    decoration: CustomDecoration.containerDecoration.copyWith(
+                        image: DecorationImage(
+                            image: NetworkImage(
+                              video!.url!,
+                            ),
+                            fit: BoxFit.cover)))
+                : SizedBox(height: context.dynamicHeight(.12)),
             Expanded(
               child: Padding(
                 padding: const ConstEdgeInsets.padding8(),
-                child: Text(snippet?.title ?? '',
+                child: Text(video?.title ?? '',
                     style: CustomDecoration.bodyLargeElipsis(context)),
               ),
             ),

@@ -13,13 +13,13 @@ class GridviewCustomWidget extends StatelessWidget {
     required this.items,
   });
   final bool isHorizontal;
-  final List<Items> items;
+  final List<MediaItem> items;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
         width: context.dynamicWidth(1),
-        height: context.dynamicHeight(.35),
+        height: context.dynamicHeight(1),
         child: GridView.custom(
           shrinkWrap: true,
           scrollDirection:
@@ -37,26 +37,24 @@ class GridviewCustomWidget extends StatelessWidget {
             ],
           ),
           childrenDelegate: SliverChildBuilderDelegate(
-            childCount: items.length,
-            (context, index) => Container(
-                alignment: Alignment.bottomLeft,
-                margin: const ConstEdgeInsets.padding4(),
-                decoration: CustomDecoration.containerDecoration.copyWith(
-                    image: DecorationImage(
-                        image: NetworkImage(
-                          items[index]
-                              .snippet!
-                              .thumbnails!//todo null safety
-                              .defaultProperty!
-                              .url!,
-                        ),
-                        fit: BoxFit.cover)),
-                child: Text(
-                  items[index].snippet?.title ?? '',
-                  style: context.appTextTheme.bodyLarge?.copyWith(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-          ),
+              childCount: items.length,
+              (context, index) => Container(
+                  padding: const ConstEdgeInsets.padding4(),
+                  alignment: Alignment.bottomLeft,
+                  margin: const ConstEdgeInsets.padding4(),
+                  decoration: CustomDecoration.containerDecoration.copyWith(
+                      image: DecorationImage(
+                          image: NetworkImage(
+                            items[index].url!,
+                          ),
+                          fit: BoxFit.cover)),
+                  child: Text(
+                    items[index].title,
+                    style: context.appTextTheme.bodyLarge?.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 14),
+                  ))),
         ));
   }
 }

@@ -13,9 +13,9 @@ class DiscoverView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController textEditingController = TextEditingController();
+    final TextEditingController textEditingController = TextEditingController(); //todo
     return BlocProvider(
-      create: (context) => DiscoverCubit(),
+      create: (context) => DiscoverCubit(context),
       child:
           BlocBuilder<DiscoverCubit, DiscoverState>(builder: (context, state) {
         final discoverCubit = BlocProvider.of<DiscoverCubit>(context);

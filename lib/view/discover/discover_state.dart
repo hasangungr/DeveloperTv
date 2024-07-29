@@ -1,8 +1,5 @@
 part of 'discover_cubit.dart';
 
-mixin PlayerState {
-  void voidVideoPlayer(BuildContext context, String videoId);
-}
 
 @immutable
 abstract class DiscoverState {}
@@ -18,7 +15,7 @@ final class DiscoverLoading extends DiscoverState {
 }
 
 final class DiscoverCompleted extends DiscoverState {
-  final List<Items>? items;
+  final List<MediaItem>? items;
 
   DiscoverCompleted({required this.items});
 }
