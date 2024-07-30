@@ -14,6 +14,8 @@ final class ConstEdgeInsets extends EdgeInsets {
   const ConstEdgeInsets.padding8() : super.all(8);
   const ConstEdgeInsets.padding4() : super.all(4);
   const ConstEdgeInsets.padding12() : super.all(12);
+
+  // static const EdgeInsents padding
 }
 
 @immutable

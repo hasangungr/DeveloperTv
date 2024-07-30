@@ -1,7 +1,9 @@
 import 'package:developer_tv/core/context_extension.dart';
 import 'package:flutter/material.dart';
 
-sealed class CustomDecoration extends BuildContext {
+final class CustomDecoration {
+  const CustomDecoration._();
+
   static final containerDecoration = BoxDecoration(
     borderRadius: BorderRadius.circular(12),
     border: Border.all(color: Colors.red),

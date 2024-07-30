@@ -1,7 +1,7 @@
 import 'package:developer_tv/product/widget/bottom_nav_bar_widgdet.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../core/widget/scaffold_with_padding.dart';
+import '../../product/widget/scaffold_with_padding.dart';
 import '../../product/widget/gridview_custom_widget.dart';
 import 'home_cubit.dart';
 import 'package:flutter/material.dart';
@@ -35,3 +35,8 @@ class HomeView extends StatelessWidget {
     );
   }
 }
+
+
+
+
+ 

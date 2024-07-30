@@ -28,8 +28,10 @@ final class SecureStorageService {
       await _storage.readAll();
 }
 
-sealed class StorageKeys {
+final class StorageKeys {
   StorageKeys._();
 
   static const String token = "token";
 }
+
+

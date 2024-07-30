@@ -33,10 +33,13 @@ final router = GoRouter(
 );
 
 @immutable
-sealed class AppRoutes {
+final class AppRoutes {
+  const AppRoutes._();
   static const String splash = '/';
   static const String home = 'home';
   static const String auth = 'auth';
   static const String discover = 'discover';
   static const String myVideos = 'myVideos';
 }
+
+ 

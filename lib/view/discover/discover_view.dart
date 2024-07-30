@@ -6,7 +6,7 @@ import 'widget/search_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../core/widget/scaffold_with_padding.dart';
+import '../../product/widget/scaffold_with_padding.dart';
 
 class DiscoverView extends StatelessWidget {
   const DiscoverView({super.key});
